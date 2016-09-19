@@ -1,0 +1,26 @@
+<% if @posts.any? %>
+<div>
+  <ul id="posts">
+     <% @posts.each do |post| %>
+      <li>
+        <h1> <%= post.title  %></h1>
+         <ul class="questions">
+             <% post.questions.each do |question| %>
+             <div class="question">
+               <li><%= question.content %></li>
+             </div>
+              <% end %>
+          </ul><!-- end of votes div -->
+      </li>
+
+     <% end %>
+  </ul>
+</div>
+
+<% else %>
+ <p> No posts yet. </p>
+<% end %>
+
+<p>
+  <%= link_to "New Post", new_post_path, id: "new_link", remote: true %>
+</p>

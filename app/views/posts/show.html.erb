@@ -1,0 +1,7 @@
+<%= @post.title %>
+
+  <ul>
+   <% @post.questions.each do |question| %>
+    <li><%= question.content %></li>
+    <% end %>
+  </ul>
