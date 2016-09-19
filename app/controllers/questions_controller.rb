@@ -18,6 +18,14 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:post_id])
+    @question = Question.find(params[:id])
+    @question.update(:votes => params[:votes])
+    binding.pry
+    redirect_to posts_path
+  end
+
 private
   def question_params
     params.require(:question).permit(:content, :post_id)

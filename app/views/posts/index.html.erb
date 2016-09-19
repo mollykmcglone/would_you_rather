@@ -8,7 +8,10 @@
              <% post.questions.each do |question| %>
              <div class="question">
                <li><%= question.content %></li>
+               <%= button_to "Vote!", post_question_path(post, question), {method: 'patch', :question => :votes => 1} %>
+                <span>Votes: <%=question.votes %></span>
              </div>
+
               <% end %>
           </ul><!-- end of votes div -->
       </li>

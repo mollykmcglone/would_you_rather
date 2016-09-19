@@ -25,6 +25,7 @@ ul {
   text-align: center;
   display: flex;
   flex-direction: row;
+  background-color: #e6e6e6;
 }
 .question {
   height: 100px!important;
@@ -39,4 +40,8 @@ ul {
   position: relative;
   top: 25px;
 
+}
+.button_to {
+  position: relative;
+  top: 45px;
 }
