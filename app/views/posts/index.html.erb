@@ -8,7 +8,7 @@
              <% post.questions.each do |question| %>
              <div class="question">
                <li><%= question.content %></li>
-               <%= button_to "Vote!", post_question_path(post, question), {method: 'patch', :question => :votes => 1} %>
+               <%= form_for question do |f| %> <%= f.hidden_field(:votes, :value => question.votes + 1) %> <%= f.submit "Vote", class: "vote-button" %> <% end %>
                 <span>Votes: <%=question.votes %></span>
              </div>
 

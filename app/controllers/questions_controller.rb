@@ -19,10 +19,8 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:post_id])
     @question = Question.find(params[:id])
-    @question.update(:votes => params[:votes])
-    binding.pry
+    @question.increment!(:votes)
     redirect_to posts_path
   end
 
