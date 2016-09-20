@@ -21,6 +21,11 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.increment!(:votes)
+
+    # respond_to do |format|
+    #   format.html { redirect_to posts_path }
+    #   format.js
+    # end
     redirect_to posts_path
   end
 

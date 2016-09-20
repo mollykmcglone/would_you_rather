@@ -16,26 +16,26 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-
-    question = nil
-    question_2 = nil
-    @post.save
-
-    if !(params.values_at('question').empty?) && !(params.values_at('question_2').empty?)
+    if (params.values_at('question').empty?) || (params.values_at('question_2').empty?)
+      flash[:alert] = "Whoops, post was not saved"
+      render :new
+    else
+      @post = Post.new(post_params)
+      @post.save
       question = @post.questions.new(content: params[:question])
       question_2 = @post.questions.new(content: params[:question_2])
-      flash[:notice] = "Post successfully created"
       question.save
       question_2.save
+
       respond_to do |format|
         format.html { redirect_to posts_path }
         format.js
       end
-    else
-      flash[:alert] = "Whoops, post was not saved"
-      render :new
     end
+
+
+
+
   end
 
   def destroy

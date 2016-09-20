@@ -1,0 +1,12 @@
+<li>
+  <h1> <%= post.title  %></h1>
+  <ul class="questions">
+    <% post.questions.each do |question| %>
+      <div class="question">
+        <li><%= question.content %></li>
+        <%= form_for question do |f| %> <%= f.submit "Vote", class: "vote-button" %> <% end %>
+        <span>Votes: <% if question.votes %> <%=question.votes %> <% else %> 0 <% end %></span>
+      </div>
+    <% end %>
+  </ul>
+</li>
