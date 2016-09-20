@@ -4,9 +4,18 @@
     <% post.questions.each do |question| %>
       <div class="question">
         <li><%= question.content %></li>
-        <%= form_for question do |f| %> <%= f.submit "Vote", class: "vote-button" %> <% end %>
-        <span>Votes: <% if question.votes %> <%=question.votes %> <% else %> 0 <% end %></span>
+        <%= form_for question, html: { id: :vote_form}, remote: true do |f| %> <%= f.submit "Vote", class: "vote-button" %> <% end %>
+        <span class="vote_count_hide <%= question.post_id %>">
+          <p>Votes:
+           <% if question.votes %>
+             <span id="<%= question.id %>">
+               <%=question.votes %>
+             </span>
+           <% else %>
+            0
+           <% end %>
+         </p></span>
       </div>
-    <% end %>
+    <% end %><!-- end of each loop for question -->
   </ul>
 </li>
