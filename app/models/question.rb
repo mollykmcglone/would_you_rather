@@ -5,6 +5,6 @@ class Question < ApplicationRecord
 
 
   def set_default
-    self.votes = nil
+    self.votes = 0
   end
 end

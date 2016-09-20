@@ -20,7 +20,6 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find(params[:id])
-    @post = Post.find(@question.post_id)
     @question.increment!(:votes)
 
     respond_to do |format|

@@ -32,10 +32,6 @@ class PostsController < ApplicationController
         format.js
       end
     end
-
-
-
-
   end
 
   def destroy

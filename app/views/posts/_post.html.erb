@@ -6,22 +6,17 @@
         <li><%= question.content %></li>
         <div class="<%= question.post_id%>_vote">
           <%= form_for question, html: { id: :vote_form }, remote: true do |f| %>
-            <%= f.submit "Vote", class: "vote-button", id: question.id%>
+          <%= f.submit "Vote", class: "vote-button", id: question.id%>
           <% end %>
         </div>
 
-        <span class="vote_count_hide <%= question.post_id %>">
+        <div class="vote_count_hide <%= question.post_id %>">
           <p>Votes:
-           <% if question.votes != nil %>
-             <span id="<%= question.id %>">
+             <span id="<%= question.id %>_votes">
                <%=question.votes %>
              </span>
-           <% else %>
-           <span id="<%= question.id %>">
-             0
-        </span>
-           <% end %>
-         </p></span>
+          </p>
+        </div>
       </div>
     <% end %><!-- end of each loop for question -->
   </ul>

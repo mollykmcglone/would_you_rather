@@ -1,5 +1,5 @@
 $('.<%= @question.post_id %>').show();
 
-$('.<%= @question.post_id %>_vote').hide();
+$('#<%= @question.id %>_votes').html('<%= @question.votes %>');
 
-$('#<%= @question.id %>').html('<%= @question.votes %>');
+$('.<%= @question.post_id %>_vote').hide();
