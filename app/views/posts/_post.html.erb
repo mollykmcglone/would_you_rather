@@ -6,7 +6,7 @@
         <li><%= question.content %></li>
         <div class="<%= question.post_id%>_vote">
           <%= form_for question, html: { id: :vote_form }, remote: true do |f| %>
-            <%= f.submit "Vote", class: "vote-button"%>
+            <%= f.submit "Vote", class: "vote-button", id: question.id%>
           <% end %>
         </div>
 
