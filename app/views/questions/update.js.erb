@@ -1,2 +1,5 @@
 $('.<%= @question.post_id %>').show();
+
+$('.<%= @question.post_id %>_vote').hide();
+
 $('#<%= @question.id %>').html('<%= @question.votes %>');
